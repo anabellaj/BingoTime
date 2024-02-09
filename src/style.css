@@ -4,24 +4,15 @@ body{
     color:lightgray;
 }
 
-#users{
-    background-color: rgb(255, 229, 251);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(105,70,123,255);
-    text-align: left;
-    border-radius: 10px;
-    box-shadow: 0 2px 7px rgb(87, 87, 87);
-    padding: 5%;
-    width: 30%;
-    height: 100%;
-    margin-top: 80px;
-    margin-left: 50px;
-    float: left;
+h1{
+    text-align: center;
+    flex: auto;
+    margin-bottom: 1px;
+   
 }
 
-.buttons{
+button{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     justify-content:center;
     padding: 10px;
@@ -31,16 +22,35 @@ body{
     flex: content;
     background-color: white;
     border-width: 1px;
-    border-color: white;
+    border-color: rgba(105,70,123,255);
     transition: 0.3s ease-in-out all;
-
+    font-size: 80%;
+    margin-right: 29%;
+    margin-left: 35%;
+    margin-top: 7%;
 }
 
-.buttons:hover{
+button:hover{
     background-color: rgba(105,70,123,255);
     color:  white;
     transform: scale(1.2);
 }
+
+table {
+    border: 1px solid #ddd; 
+    margin: 0 auto; 
+    width: 100%;
+    height: 100%;
+    flex:content;
+    margin-bottom: 100px;
+  }
+  
+  td {
+    text-align: center; 
+    padding: 10px; 
+    background-color:  rgb(255, 245, 253); 
+  }
+
 
 .inputName{
     flex: auto;
@@ -54,5 +64,51 @@ body{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    background-color:  rgb(255, 243, 253);
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Main Page: left = users' names; right = ranking */
+/* Game Page: left = bingo number; right = bingo card */
+ .container__left, .container__right{
+    background-color: rgb(255, 229, 251);
+    display: flex;
+    flex-direction: column;
+    color: rgba(105, 70, 123, 255);
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px 4px rgba(0, 0, 0, 0.25);
+    padding: 5%;
+    margin: auto;
+    min-width: 30%;
+    flex: 1;
+    max-width: 40%;
+    min-width: 350px;
+    min-height: 550px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-top: 10px;
+ }
+
+.logo{
+    flex: auto;
+    margin: auto;
+    justify-content: center;
+    display: block;
+    min-width: 40px;
+    min-height: 30px;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+  
+
+
+  
