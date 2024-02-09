@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="../images/tabIcon.png" type="image/x-icon" />
+    <title>BingoTime!</title>
+  </head>
+  <body>
+    <div>
+      <div id="users">
+        <div>
+          <h1>BingoTime!</h1>
+        </div>
+        <!-- Ingresar nombres -->
+        <div>
+          <h2>Intenta ser el primero en llenar el carton!</h2>
+          <p>Ingrese los nombres de los jugadores</p>
+          <div id="inputs">
+            <label for="jugador1">Jugador 1:</label>
+            <input type="text" class="inputName" id="jugador1" /><br />
+            <label for="jugador2">Jugador 2:</label>
+            <input type="text" class="inputName" id="jugador2" /><br />
+            <label for="jugador3">Jugador 3:</label>
+            <input type="text" class="inputName" id="jugador3" /><br />
+            <label for="jugador4">Jugador 4:</label>
+            <input type="text" class="inputName" id="jugador4" /><br />
+            <label>Elija el tamaño de los cartones: </label
+            ><input
+              class="inputName"
+              id="boardSize"
+              type="number"
+              placeholder="Entre 3 y 5"
+            />
+            <button id="play" class="buttons" onclick="validateUsername()">
+              A jugar!
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--- Ranking -->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+body{
+    background-color: rgba(105,70,123,255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:lightgray;
+}
+
+#users{
+    background-color: rgb(255, 229, 251);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(105,70,123,255);
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgb(87, 87, 87);
+    padding: 5%;
+    width: 30%;
+    height: 100%;
+    margin-top: 80px;
+    margin-left: 50px;
+    float: left;
+}
+
+.buttons{
+    display: flex;
+    justify-content:center;
+    padding: 10px;
+    border-radius: 20px;
+    width: 120px;
+    height: 35px;
+    flex: content;
+    background-color: white;
+    border-width: 1px;
+    border-color: white;
+    transition: 0.3s ease-in-out all;
+
+}
+
+.buttons:hover{
+    background-color: rgba(105,70,123,255);
+    color:  white;
+    transform: scale(1.2);
+}
+
+.inputName{
+    flex: auto;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgba(105,70,123,255);
+    margin: 10px;
+    padding: 5px;
+    color: rgba(105,70,123,255);
+    font-weight: bolder;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
