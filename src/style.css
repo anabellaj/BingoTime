@@ -11,6 +11,12 @@ h1{
    
 }
 
+h3{
+    display:inline-table;
+    text-align: center;
+    
+}
+
 button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
@@ -28,6 +34,7 @@ button{
     margin-right: 29%;
     margin-left: 35%;
     margin-top: 7%;
+    color: rgba(105,70,123,255);
 }
 
 button:hover{
@@ -37,6 +44,7 @@ button:hover{
 }
 
 table {
+    
     border: 1px solid #ddd; 
     margin: 0 auto; 
     width: 100%;
@@ -76,7 +84,7 @@ table {
 }
 
 /* Main Page: left = users' names; right = ranking */
-/* Game Page: left = bingo number; right = bingo card */
+/* Game Page: left = bingo card; right = bingo number */
  .container__left, .container__right{
     background-color: rgb(255, 229, 251);
     display: flex;
@@ -108,7 +116,70 @@ table {
     max-height: 150px;
 }
 
-  
+.cards{
+    border: none;
+    margin-bottom: 10%;
+}
 
-
+.cards td{
+    border-radius: 100px;    
+}
   
+.cards thead{
+    font-size: 200%;   
+}
+
+.cards td:hover{
+    background-color: rgba(105,70,123,255);
+    color:  white;
+}
+
+.contador{
+    background-color: rgba(105,70,123,255);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+.bingoBall{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(105,70,123,255);
+    border: 20px solid rgba(105,70,123,255);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.container__rightMiddle{
+    display: flex;
+    align-items:baseline;
+}
+
+.container__rightMiddle button{
+    margin-right: auto;
+    margin-left: 30px;
+    margin-top: 100px;
+    color: rgba(105,70,123,255);
+    box-sizing:border-box;
+    transition: 0.3s ease-in-out all;
+}
+
+.container__rightMiddle button:hover{
+    background-color: rgba(105,70,123,255);
+    color:  white;
+    transform: scale(1.1);
+}
+
+.otherCards{
+    display: flex;
+    
+}
