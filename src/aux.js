@@ -1,13 +1,21 @@
+const boardSize = localStorage.getItem('boardSize');
+
+let user1 = {name: localStorage.getItem('username1'), card: generateBingoBoard(generateMatrix(boardSize), 'bingoCard1'), score: 0};
+let user2 = {name: localStorage.getItem('username2'), card: "", score: 0};
+let user3 = {name: localStorage.getItem('username3'), card: "", score: 0};
+let user4 = {name: localStorage.getItem('username4'), card: "", score: 0};
+
 let turnos = 0;
 let usedNumbers = new Set();
-let matrix = generateMatrix(5);
-let bingoCardUser = generateBingoBoard(matrix, 'bingoCard1');
-
 
 document.getElementById('numberButton').addEventListener('click', function() {
     const randomNumber = generateRandomNumber();
-    markNumber(randomNumber, bingoCardUser);
+    markNumber(randomNumber, user1['card']);
   });
+
+document.getElementById('restart').addEventListener('click',function(){restart()});
+
+document.getElementById('nombreJugador1').innerText = user1['name'];
 
 function generateMatrix(n) {
     let matrix = [];
@@ -28,8 +36,8 @@ function generateMatrix(n) {
     return matrix
 }
 
-function generateBingoBoard(matrix, number){
-    let bingoCard = document.getElementById(number);
+function generateBingoBoard(matrix, htmlId){
+    let bingoCard = document.getElementById(htmlId);
     let bingoHead = document.createElement("thead");
     let headerRow = document.createElement("tr");
     headerRow.innerHTML = `
@@ -85,16 +93,17 @@ function markNumber(randomNumber, board){
   }
 
   function checkScore(board){
-    const rows = board.querySelectorAll('tr');
-    //horizontal
-    for (let i=0; i<rows.length; i++){
-        let cells = rows[i].querySelectorAll('td');
-        for (let j=0; j<cells.length; j++){
-            if (cells.class == 'noMarcado'){
-                break;
-            }
-        }
-    }
-
+    
 
   }
+
+
+  function restart(){
+    localStorage.removeItem('username1');
+    localStorage.removeItem('username2');
+    localStorage.removeItem('username3');
+    localStorage.removeItem('username4');
+    localStorage.removeItem('boardSize');
+    window.location.href = 'index.html'
+}
+  

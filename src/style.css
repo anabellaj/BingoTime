@@ -14,7 +14,7 @@ h1{
 h3{
     display:inline-table;
     text-align: center;
-    
+    font-size: 32px;
 }
 
 button{
@@ -101,7 +101,7 @@ table {
     padding: 5%;
     margin: auto;
     min-width: 30%;
-    flex: 1;
+    flex: 10;
     max-width: 40%;
     min-width: 350px;
     min-height: 550px;
@@ -164,7 +164,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     color: rgba(105,70,123,255);
     border: 20px solid rgba(105,70,123,255);
@@ -181,18 +181,26 @@ table {
     margin-left: 30px;
     margin-top: 100px;
     color: rgba(105,70,123,255);
-    box-sizing:border-box;
+    text-align: justify;
     transition: 0.3s ease-in-out all;
 }
 
 .container__rightMiddle button:hover{
-    background-color: rgba(105,70,123,255);
     color:  white;
     transform: scale(1.1);
 }
 
 .otherCards{
     display: flex;
+}
+
+.otherCards thead{
+    font-size: smaller;
+
+}
+
+.otherCards td{
+    font-size: smaller;
     
 }
 
@@ -200,3 +208,25 @@ table {
     background-color: rgba(105,70,123,255);
     color: white;
 }
+
+.restartButton, .nextButton, .backButton{
+    align-items: center;
+    background: none;
+    border: none;
+    margin: 1px;
+
+
+}
+
+.restartButton:hover, .nextButton:hover, .backButton:hover {
+    background: none;
+    border: none;
+}
+
+.otherButtons{
+    display: flex;
+    margin-top: 10%;
+    flex-wrap: wrap;
+}
+
+

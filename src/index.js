@@ -15,6 +15,11 @@ function initialize(){
     if(validateName('jugador1') && validateName('jugador2') && validateName('jugador3') && validateName('jugador4')){
         document.getElementById('msg4').innerHTML=""
         if(3 <= boardSize && boardSize <=5 ){
+            localStorage.setItem('username1', document.getElementById('jugador1').value);
+            localStorage.setItem('username2', document.getElementById('jugador2').value);
+            localStorage.setItem('username3', document.getElementById('jugador3').value);
+            localStorage.setItem('username4', document.getElementById('jugador4').value);
+            localStorage.setItem('boardSize', document.getElementById('boardSize').value);
             window.location.href = 'game.html'
             
         }
@@ -37,69 +42,4 @@ function validateName(name){
     }   
 } 
 
-/**
- * Funcion que genera una matriz nxn con numeros aleatorios sin repetir
- * @param {*} n, numeri ingresado por el usuario
- * @returns matriz nxn
- */
-function generateMatrix(n) {
-    let matriz = [];
-    let i=0;
-    let usedNumbers = new Set(); 
-    while (i < n) {
-        matriz[i] = [];
-        for (let j = 0; j < n; j++) {
-        let randomNumber= Math.floor(Math.random() * 50) + 1;
-        while(usedNumbers.has(randomNumber)){
-            randomNumber = Math.floor(Math.random() * 50) + 1;
-        }
-        usedNumbers.add(randomNumber); 
-        matriz[i][j] = randomNumber;
-        }
-        i++;
-    }
-
-    return matrix
-}
-
-
-function generateBingoBoard(matrix, htmlId, username){
-    let bingoCard = document.getElementById(htmlId);
-    let bingoHead = document.createElement("thead");
-    let headerRow = document.createElement("tr");
-    headerRow.innerHTML = `
-        <th>B</th>
-        <th>I</th>
-        <th>N</th>
-        <th>G</th>
-        <th>O</th>`;
-    bingoHead.append(headerRow);
-    bingoCard.append(bingoHead);
-
-    let bingoBody = document.createElement("tbody");
-    for (let i = 0; i < matrix.length; i++) {
-        let row = document.createElement("tr");
-      for (let j = 0; j < matrix[i].length; j++) {
-        let cell = document.createElement("td");
-        cell.classList.add("cell");
-        cell.textContent = matrix[i][j];
-        row.append(cell);
-      }
-      bingoBody.append(row);
-
-    }
-    bingoCard.append(bingoBody);
-    let number = htmlId [-1];
-    let newId = 'nombreJugador'+number;
-    document.getElementById(newId).innerHTML='<h3>'+username+'</h3>';
-
-    return finalBingoCard;
-
-}
-
-
-
-
-matrix = generateMatrix(boardSize);
-card1 = generateBingoBoard(matrix, bingoCard1,player1);
 
