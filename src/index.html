@@ -18,13 +18,37 @@
             <p><br /><br />Ingrese los nombres de los jugadores</p>
             <div id="inputs">
               <label for="jugador1">Jugador 1:</label>
-              <input type="text" class="inputName" id="jugador1" /><br />
+              <input
+                type="text"
+                class="inputName"
+                id="jugador1"
+                placeholder="Nombre"
+              /><br />
               <label for="jugador2">Jugador 2:</label>
-              <input type="text" class="inputName" id="jugador2" /><br />
+              <input
+                type="text"
+                class="inputName"
+                id="jugador2"
+                placeholder="Nombre"
+              /><br />
+
               <label for="jugador3">Jugador 3:</label>
-              <input type="text" class="inputName" id="jugador3" /><br />
+              <input
+                type="text"
+                class="inputName"
+                id="jugador3"
+                placeholder="Nombre"
+              /><br />
+
               <label for="jugador4">Jugador 4:</label>
-              <input type="text" class="inputName" id="jugador4" /><br />
+              <input
+                type="text"
+                class="inputName"
+                id="jugador4"
+                placeholder="Nombre"
+              /><br />
+              <p class="msg" id="msg4"></p>
+
               <label for="boardSize">Elija el tamaño de los cartones: </label
               ><input
                 class="inputName"
@@ -32,16 +56,16 @@
                 type="number"
                 placeholder="Entre 3 y 5"
               />
-              <button id="play" class="buttons" onclick="createBoard()">
-                Empezar Partida
-              </button>
+              <p class="msg" id="msg5"></p>
+
+              <button id="play" class="buttons">Empezar Partida</button>
             </div>
           </div>
         </div>
         <!--- Ranking -->
         <div id="ranking" class="container__right">
-          <h1 id="ranking">Ranking</h1>
-          <table>
+          <h1>Ranking</h1>
+          <table id="rankingTable">
             <thead>
               <tr>
                 <th>Jugador</th>
