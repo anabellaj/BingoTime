@@ -237,7 +237,7 @@ function switchCardBack(){
  */
 function gameOver(){
     let container = document.getElementById('container');
-    container.innerHTML='<div class="container__left"><h1 id="ranks">Ranking</h1><table id="rankingTable"><thead><tr><th></th><th>Jugador</th><th>Score</th></tr></thead><tbody><tr><td>Winner!</td><td id="primerLugar">N/A</td><td id="primerLugar__score">N/A</td></tr><tr><td>2nd</td><td id="segundoLugar">N/A</td><td id="segundoLugar__score">N/A</td></tr><tr><td>3rd</td><td id="tercerLugar">N/A</td><td id="tercerLugar__score">N/A</td></tr><tr><td>4th</td><td id="cuartoLugar">N/A</td><td id="cuartoLugar__score">N/A</td></tr></tbody></table></div><div class="container__right"><button id="restart" class="restartButton" style="margin: auto"><img src="../images/RESTART.png" width="250px" /></button></div>';
+    container.innerHTML='<div class="container__left"><h1 id="ranks">Ranking</h1><table id="rankingTable"><thead><tr><th></th><th>Jugador</th><th>Score</th></tr></thead><tbody><tr><td>Winner!</td><td id="primerLugar">N/A</td><td id="primerLugar__score">N/A</td></tr><tr><td>2nd</td><td id="segundoLugar">N/A</td><td id="segundoLugar__score">N/A</td></tr><tr><td>3rd</td><td id="tercerLugar">N/A</td><td id="tercerLugar__score">N/A</td></tr><tr><td>4th</td><td id="cuartoLugar">N/A</td><td id="cuartoLugar__score">N/A</td></tr></tbody></table></div><div class="container__right"><button id="restart" class="restartButton" style="margin: auto"><img src="./images/RESTART.png" width="250px" /></button></div>';
     document.getElementById('restart').addEventListener('click',function(){restart()});
     for (let i=0; i<users.length; i++){
         let user = users[i];
