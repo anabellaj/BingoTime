@@ -96,14 +96,61 @@ function markNumber(randomNumber, board){
       let cell = cells[i];
       if (cell.textContent  == randomNumber) {
         cell.classList.replace("noMarcado", "marcado");
-        
+        if (checkFullCard(board)){
+            gameOver();
+        }
         return;
       }
     }
+    checkVertical(board);
   }
 
   function checkScore(board){
+    let score = 0;
     
+      for (let i = 0; i < board.rows.length; i++) {
+        if (checkLine(board.rows[i].cells)) {
+          score++;
+          console.log("Horizontal line bingo!");
+        }
+      }
+    
+      if (checkVertical(board)) {
+        score++;
+        console.log("Vertical line bingo!");
+      }
+    
+      const cells = board.querySelectorAll("td");
+      const boardSize = Math.sqrt(cells.length);
+    
+      let diagonal1Complete = true;
+      let diagonal2Complete = true;
+    
+      for (let i = 0; i < boardSize; i++) {
+        if (!cells[i * boardSize + i].classList.contains("marcado")) {
+          diagonal1Complete = false;
+        }
+        if (!cells[i * boardSize + (boardSize - 1 - i)].classList.contains("marcado")) {
+          diagonal2Complete = false;
+        }
+      }
+    
+      if (diagonal1Complete) {
+        score += 3;
+        console.log("Diagonal 1 bingo!");
+      }
+    
+      if (diagonal2Complete) {
+        score += 3;
+        console.log("Diagonal 2 bingo!");
+      }
+    
+      if (checkFullCard(board)) {
+        score += 5;
+        console.log("Full bingo card!");
+      }
+    
+      return score;
 
   }
 
@@ -156,6 +203,50 @@ function gameOver(){
     let container = document.getElementById('container');
     container.innerHTML='<div class="container__left"><h1>Ranking</h1><table id="rankingTable"><thead><tr><th></th><th>Jugador</th><th>Score</th></tr></thead><tbody><tr><td>Winner!</td><td id="primerLugar">N/A</td><td id="primerLugar__score">N/A</td></tr><tr><td>2nd</td><td id="segundoLugar">N/A</td><td id="segundoLugar__score">N/A</td></tr><tr><td>3rd</td><td id="tercerLugar">N/A</td><td id="tercerLugar__score">N/A</td></tr><tr><td>4th</td><td id="cuartoLugar">N/A</td><td id="cuartoLugar__score">N/A</td></tr></tbody></table></div><div class="container__right"><button id="restart" class="restartButton" style="margin: auto"><img src="../images/RESTART.png" width="250px" /></button></div>';
     document.getElementById('restart').addEventListener('click',function(){restart()});
-
+    for (let i=0; i<users.length; i++){
+        let user = users[i];
+        user.score = checkScore(user.card);
+        console.log(user.name, user.score);
+    }
+    users.sort((a, b) => 
+        b.score - a.score);
+    console.log(users);
+    let places = ['primerLugar', 'segundoLugar','tercerLugar','cuartoLugar'];
 }
+
+function checkVertical(board) {
+    const cells = board.querySelectorAll('td');
+    const boardSize = Math.sqrt(cells.length);
+  
+    for (let j = 0; j < boardSize; j++) {
+      let selected = 0;
+      for (let i = 0; i < boardSize; i++) {
+        if (cells[i * boardSize + j].classList.contains('marcado')) {
+          selected++;
+        }
+      }
+      if (selected === boardSize) {
+        console.log("Vertical line bingo!");
+        return true;
+      }
+    }
+  }
+
+  function checkFullCard(board) {
+    const cells = board.querySelectorAll("td");
+    for (let i = 0; i < cells.length; i++) {
+      if (!cells[i].classList.contains("marcado")) {
+        return false;
+      }
+    }
+    return true;
+  }
+  function checkLine(cells) {
+    for (let i = 0; i < cells.length; i++) {
+      if (!cells[i].classList.contains("marcado")) {
+        return false;
+      }
+    }
+    return true;
+  }
 
