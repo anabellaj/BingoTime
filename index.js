@@ -3,7 +3,7 @@ if (localStorage.getItem('historial') != null){
     let victorias = JSON.parse(localStorage.getItem('historial'));
     victorias.sort((a, b) => 
         b.score - a.score);
-    let ranks = ['primerLugar', 'segundoLugar','tercerLugar','cuartoLugar'];
+    let ranks = ['primerLugar', 'segundoLugar','tercerLugar','cuartoLugar','quintoLugar'];
     for (let i=0; i<victorias.length && i<5; i++){
         let idUser = document.getElementById(ranks[i]);
         let scoreUser = document.getElementById(`${ranks[i]}__score`);
