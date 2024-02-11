@@ -1,19 +1,26 @@
 const boardSize = localStorage.getItem('boardSize');
 
 let user1 = {name: localStorage.getItem('username1'), card: generateBingoBoard(generateMatrix(boardSize), 'bingoCard1'), score: 0};
-let user2 = {name: localStorage.getItem('username2'), card: "", score: 0};
-let user3 = {name: localStorage.getItem('username3'), card: "", score: 0};
-let user4 = {name: localStorage.getItem('username4'), card: "", score: 0};
+let user2 = {name: localStorage.getItem('username2'), card: generateBingoBoard(generateMatrix(boardSize), 'bingoCard2'), score: 0};
+let user3 = {name: localStorage.getItem('username3'), card: generateBingoBoard(generateMatrix(boardSize), 'bingoCard3'), score: 0};
+let user4 = {name: localStorage.getItem('username4'), card: generateBingoBoard(generateMatrix(boardSize), 'bingoCard4'), score: 0};
 
-let turnos = 0;
+let users = [user1, user2,user3,user4];
+let cardIndex = 0;
+let turnos = 25;
 let usedNumbers = new Set();
 
 document.getElementById('numberButton').addEventListener('click', function() {
     const randomNumber = generateRandomNumber();
     markNumber(randomNumber, user1['card']);
+    markNumber(randomNumber, user2['card']);
+    markNumber(randomNumber, user3['card']);
+    markNumber(randomNumber, user4['card']);
   });
 
 document.getElementById('restart').addEventListener('click',function(){restart()});
+document.getElementById('next').addEventListener('click',function(){switchCardNext()});
+document.getElementById('back').addEventListener('click',function(){switchCardBack()});
 
 document.getElementById('nombreJugador1').innerText = user1['name'];
 
@@ -73,8 +80,11 @@ function generateRandomNumber(){
         }
         usedNumbers.add(randomNumber); 
         document.getElementById('bingoBall').innerHTML = '<p>'+randomNumber+'</p>';
-        turnos++;
+        turnos--;
         document.getElementById('contador').innerHTML = turnos;
+        if (turnos == 0){
+            gameOver();
+        }
         return randomNumber;
     }
 
@@ -107,3 +117,45 @@ function markNumber(randomNumber, board){
     window.location.href = 'index.html'
 }
   
+function switchCardNext (){
+    if (cardIndex == 3){
+        return;
+    }
+    let container = document.getElementById('mainCard');
+    container.innerHTML='';
+    let currentCard = users[cardIndex].card;
+    currentCard.classList.replace('activeCard','cardsHidden');
+    cardIndex++;
+    let newCard = users[cardIndex].card;
+    newCard.classList.replace('cardsHidden', 'activeCard');
+    container.append(newCard);
+    let nameCard = document.createElement('h3');
+    nameCard.innerHTML = users[cardIndex].name;
+    container.append(nameCard);
+}
+
+function switchCardBack(){
+    if (cardIndex == 0){
+        return ;
+    }
+    let container = document.getElementById('mainCard');
+    container.innerHTML='';
+    let currentCard = users[cardIndex].card;
+    currentCard.classList.replace('activeCard','cardsHidden');
+    cardIndex--;
+    let newCard = users[cardIndex].card;
+    newCard.classList.replace('cardsHidden', 'activeCard');
+    container.append(newCard);
+    let nameCard = document.createElement('h3');
+    nameCard.innerHTML = users[cardIndex].name;
+    container.append(nameCard);
+}
+
+
+function gameOver(){
+    let container = document.getElementById('container');
+    container.innerHTML='<div class="container__left"><h1>Ranking</h1><table id="rankingTable"><thead><tr><th></th><th>Jugador</th><th>Score</th></tr></thead><tbody><tr><td>Winner!</td><td id="primerLugar">N/A</td><td id="primerLugar__score">N/A</td></tr><tr><td>2nd</td><td id="segundoLugar">N/A</td><td id="segundoLugar__score">N/A</td></tr><tr><td>3rd</td><td id="tercerLugar">N/A</td><td id="tercerLugar__score">N/A</td></tr><tr><td>4th</td><td id="cuartoLugar">N/A</td><td id="cuartoLugar__score">N/A</td></tr></tbody></table></div><div class="container__right"><button id="restart" class="restartButton" style="margin: auto"><img src="../images/RESTART.png" width="250px" /></button></div>';
+    document.getElementById('restart').addEventListener('click',function(){restart()});
+
+}
+

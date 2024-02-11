@@ -122,26 +122,26 @@ table {
     max-height: 150px;
 }
 
-.cards{
+.activeCard{
     border: none;
     margin-bottom: 10%;
     text-align: center;
     align-items:center;
-    
+    min-height: fit-content;
 }
 
-.cards td{
+.activeCard td{
     border-radius: 100px;  
       
 }
   
-.cards thead{
+.activeCard thead{
     font-size: 200%;
     display:contents;  
     
 }
 
-.cards td:hover{
+.activeCard td:hover{
     background-color: rgba(105,70,123,255);
     color:  white;
 }
@@ -229,4 +229,6 @@ table {
     flex-wrap: wrap;
 }
 
-
+.cardsHidden{
+    display: none;
+}

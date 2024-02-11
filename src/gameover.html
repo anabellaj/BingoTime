@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="../images/tabIcon.png" type="image/x-icon" />
+    <title>BingoTime</title>
+  </head>
+  <body>
+    <img src="../images/Logo.png" alt="Logo" class="logo" />
+
+    <div class="container">
+      <div class="container__left">
+        <h1>Ranking</h1>
+        <table id="rankingTable">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Jugador</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Winner!</td>
+              <td id="primerLugar">N/A</td>
+              <td id="primerLugar__score">N/A</td>
+            </tr>
+            <tr>
+              <td>2nd</td>
+
+              <td id="segundoLugar">N/A</td>
+              <td id="segundoLugar__score">N/A</td>
+            </tr>
+            <tr>
+              <td>3rd</td>
+
+              <td id="tercerLugar">N/A</td>
+              <td id="tercerLugar__score">N/A</td>
+            </tr>
+            <tr>
+              <td>4th</td>
+
+              <td id="cuartoLugar">N/A</td>
+              <td id="cuartoLugar__score">N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container__right">
+        <button id="restart" class="restartButton" style="margin: auto">
+          <img src="../images/RESTART.png" width="250px" />
+        </button>
+      </div>
+    </div>
+
+    <script src="aux.js"></script>
+  </body>
+</html>
